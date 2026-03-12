@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"“UTF-8”>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>GreenChat Vision Pro</title>
-    <style>
+    <style><样式>
         :root { --ios-blue: #007AFF; --ios-gray: #E9E9EB; --panel-bg: #f7f7f7; --vh: 100vh; }
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        html, body { margin: 0; padding: 0; width: 100%; height: var(--vh); overflow: hidden; background: #fff; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
+        html, body { margin: 0; padding: 0; width: 100%; height: var(--vh); overflow: hidden; background: #fff; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }html, body { margin: 0; padding: 0; width: 100%; height: var(--vh); overflow: hidden; background: #fff;字体族: -苹果系统, BlinkMacSystemFont, 无衬线; }
         #app-container { display: flex; flex-direction: column; height: 100%; width: 100%; }
-        header { height: 50px; padding: 0 16px; display: flex; justify-content: space-between; align-items: center; border-bottom: 0.5px solid #c8c8c8; background: rgba(249, 249, 249, 0.94); backdrop-filter: blur(10px); flex-shrink: 0; z-index: 100; }
+        header { height: 50px; padding: 0 16px; display: flex; justify-content: space-between; align-items: center; border-bottom: 0.5px solid #c8c8c8; background: rgba(249, 249, 249, 0.94); backdrop-filter: blur(10px); flex-shrink: 0; z-index: 100; }header { height: 50px; padding: 0 16px; display: flex; justify-content: space-between; align-items: center; border-bottom: 0.5px solid#c8c8c8;背景: rgba(249, 249, 249, 0.94); 背景模糊: 模糊(10px); 弹性收缩: 0; z-index: 100; }50像素; 内边距: 0 16像素; 显示: flex; justify-content: space-between; align-items: center; 下边框: 0.5像素 实心 #c8c8c8; background: rgba(249, 249, 249, 0.94); backdrop-filter: 模糊(10像素); flex-shrink: 0; z-index: 100; }标题 { 高度: 50像素; padding: 0 16像素; display: flex; justify-content: space-between; align-items: center; border-bottom: 0.5像素 solid#c8c8c8;背景: rgba(249, 249, 249, 0.94); 背景模糊: 模糊(10px); 弹性收缩: 0; z-index: 100; }
         #chat-window { flex: 1; overflow-y: auto; padding: 15px 12px; display: flex; flex-direction: column; gap: 12px; background: #fff; -webkit-overflow-scrolling: touch; }
         
         /* 气泡样式 */
-        .msg-container { display: flex; flex-direction: column; max-width: 75%; gap: 4px; }
-        .msg-container.user { align-self: flex-end; align-items: flex-end; }
+        .msg-container { display: flex; flex-direction: column; max-width: 75%; gap: 4px; }像素; }像素; }像素; }4像素; }像素; }像素; }像素; }
+        .msg-container.user { align-self: flex-end; align-items: flex-end; }消息容器.用户 { 自身对齐: flex-end; 项对齐: flex-end; }
         .msg-container.ai { align-self: flex-start; align-items: flex-start; }
-        .msg { padding: 10px 14px; border-radius: 18px; font-size: 16px; line-height: 1.4; word-wrap: break-word; }
+        .msg { padding: 10px 14px; border-radius: 18px; font-size: 16px; line-height: 1.4; word-wrap: break-word; }14像素; border-radius: 18像素; font-size: 16px; line-height: 1.4; word-wrap: break-word; }
         .user .msg { background: var(--ios-blue); color: white; border-bottom-right-radius: 4px; }
         .ai .msg { background: var(--ios-gray); color: black; border-bottom-left-radius: 4px; }
         .img-msg { max-width: 100%; border-radius: 12px; margin-top: 4px; border: 0.5px solid #eee; display: block; }
 
         /* 输入栏 */
-        .bottom-bar { background: rgba(249, 249, 249, 0.94); backdrop-filter: blur(10px); border-top: 0.5px solid #c8c8c8; padding: 8px 10px; padding-bottom: calc(8px + env(safe-area-inset-bottom)); flex-shrink: 0; }
+        .bottom-bar { background: rgba(249, 249, 249, 0.94); backdrop-filter: blur(10px); border-top: 0.5px solid #c8c8c8; padding: 8px 10px; padding-bottom: calc(8px + env(safe-area-inset-bottom)); flex-shrink: 0; }        .bottom-bar { background: rgba(249, 249, 249, 0.94); backdrop-filter: blur(10px); border-top: 0.5px solid#c8c8c8;内边距: 8px 10px; 下内边距: calc(8px + env(safe-area-inset-bottom)); flex-shrink: 0; }
         .input-wrapper { display: flex; align-items: flex-end; gap: 8px; }
-        #userInput { flex: 1; min-height: 36px; max-height: 120px; background: white; border: 0.5px solid #c8c8c8; border-radius: 18px; padding: 8px 12px; font-size: 16px; outline: none; overflow-y: auto; line-height: 20px; }
-        .circle-btn { width: 32px; height: 32px; border-radius: 50%; border: none; background: var(--ios-blue); color: white; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; margin-bottom: 2px; font-size: 18px; }
-        .side-btn { font-size: 20px; color: #555; background: none; border: none; padding: 0 4px; cursor: pointer; margin-bottom: 6px; font-weight: bold; }
+        #userInput { flex: 1; min-height: 36px; max-height: 120px; background: white; border: 0.5px solid #c8c8c8; border-radius: 18px; padding: 8px 12px; font-size: 16px; outline: none; overflow-y: auto; line-height: 20px; }#userInput{flex:1;min-height36pxmax-height120backgroundwhiteborder0.5solid#c8c8c8;边框半径18内边距812字体大小16无轮廓溢出-y自动行高20}
+        .circle-btn { width: 32px; height: 32px; border-radius: 50%; border: none; background: var(--ios-blue); color: white; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; margin-bottom: 2px; font-size: 18px; }        .circle-btn { width: 32px; 高度: 32px; 边框半径: 50%; 边框: 无; 背景: var(--ios-blue); 颜色: 白色; 显示: flex; align-items: center; justify-content: center; 光标: 指针; flex-shrink: 0; 下边距: 2px; 字体大小: 18px; }
+        .side-btn { font-size: 20px; color: #555; background: none; border: none; padding: 0 4px; cursor: pointer; margin-bottom: 6px; font-weight: bold; }像素; color: #555; background: none; border: none; padding: 0 4像素; cursor: pointer; margin-bottom: 6px; font-weight: bold; }
 
         /* 扩展面板 */
         #extra-panel { height: 220px; background: var(--panel-bg); display: none; grid-template-columns: repeat(4, 1fr); padding: 20px; gap: 15px; border-top: 0.5px solid #c8c8c8; }
@@ -81,25 +81,25 @@
 
 <div id="camera-modal">
     <video id="video-preview" autoplay playsinline></video>
-    <div class="camera-controls">
-        <button onclick="closeCamera()" style="color:#fff; background:none; border:none;">取消</button>
-        <button class="shutter-btn" onclick="takePhoto()"></button>
-        <div style="width:40px"></div>
+    <div class="camera-controls"“camera-controls”>
+        <button按钮 onclick="closeCamera()" style="color:#fff; background:none; border:none;">取消</button>
+        <button按钮 class="shutter-btn" onclick="takePhoto()"></button>
+        <div style="width:40px像素"></div>
     </div>
 </div>
 
 <div id="page-settings">
-    <div style="padding:15px; display:flex; justify-content:space-between; align-items:center;">
-        <button onclick="toggleSettings(false)" style="color:var(--ios-blue); border:none; background:none;">取消</button>
+    <div style="padding:15px像素; display:flex; justify-content:space-between; align-items:center;">
+        <button按钮 onclick="toggleSettings(false)" style="color:var(--ios-blue); border:none; background:none;">取消</button><按钮 onclick="toggleSettings(false)" style="color:var(--ios-blue); 边框:无; 背景:无;">取消</按钮>
         <b>配置 Vision 模型</b>
-        <button onclick="saveSettings()" style="font-weight:bold; color:var(--ios-blue); border:none; background:none;">完成</button>
+        <button按钮 onclick="saveSettings()" style="font-weight:bold; color:var(--ios-blue); border:none; background:none;">完成</button><按钮按钮 onclick="saveSettings()" style="font-weight:bold; 颜色:变量(--ios-blue); 边框:无; 背景:无;">完成</按钮>按钮按钮 onclick="saveSettings()" style="font-weight:bold; 颜色:变量(--ios-blue); 边框:无; 背景:无;">完成</按钮><按钮按钮 onclick="saveSettings()" style="font-weight:bold; 颜色:变量(--ios-blue); 边框:无; 背景:无;">完成</按钮>
     </div>
     <div class="set-item"><label>API地址</label><input type="text" id="baseUrl"></div>
-    <div class="set-item"><label>Key</label><input type="password" id="apiKey"></div>
+    <div class="set-item"><label>Key</label><input type="password" id="apiKey"></div>div class="set-item"><label>密钥</label><input type="password" id="apiKey"></div><div class="set-item"><label>密钥</label><input type="password" id="apiKey"></div>div class="set-item"><label>密钥</label><input type="password" id="apiKey"></div>
     <div class="set-item">
         <label>模型</label>
-        <select id="modelSelect" style="flex:1; border:none;"></select>
-        <button onclick="fetchModels()" style="color:var(--ios-blue); border:none; background:none;">获取</button>
+        <select id="modelSelect" style="flex:1; border:none;"></select>选择 id="modelSelect" style="弹性:1; border:无;"></select>
+        <button按钮 onclick="fetchModels()" style="color:var(--ios-blue); border:none; background:none;">获取</button>按钮 onclick="fetchModels()" style="颜色:var(--ios-blue); border:无; background:none;">获取</button>
     </div>
 </div>
 
@@ -209,7 +209,7 @@
         closeCamera();
         addImageMessage(b64, 'user');
         chatHistory.push({
-            role: "user",
+            role: "user",角色: "用户",
             content: [{ type: "text", text: "拍了一张照片" }, { type: "image_url", image_url: { url: b64 } }]
         });
         if(panelOpen) togglePanel();
@@ -220,7 +220,7 @@
     function addMessage(text, side) {
         const win = document.getElementById('chat-window');
         const cont = document.createElement('div');
-        cont.className = `msg-container ${side}`;
+        cont.className = `msg-container ${side}`;cont.className=`msg-container${side}`;
         cont.innerHTML = `<div class="msg">${text}</div>`;
         win.appendChild(cont);
         win.scrollTop = win.scrollHeight;
@@ -229,29 +229,34 @@
     function addImageMessage(base64, side) {
         const win = document.getElementById('chat-window');
         const cont = document.createElement('div');
-        cont.className = `msg-container ${side}`;
+        cont.className = `msg-container ${side}`;cont.className=`msg-container${side}`;cont.className=`msg-container${side}`;cont.className=`msg-container${side}`;
         cont.innerHTML = `<img src="${base64}" class="img-msg">`;
         win.appendChild(cont);
         win.scrollTop = win.scrollHeight;
     }
 
     function togglePanel() {
-        panelOpen = !panelOpen;
-        document.getElementById('extra-panel').style.display = panelOpen ? 'grid' : 'none';
-        fixHeight();
-        setTimeout(() => { const w = document.getElementById('chat-window'); w.scrollTop = w.scrollHeight; }, 50);
-    }
+    panelOpen = !panelOpen;
+    const p = document.getElementById('extra-panel');
+    p.style.display = panelOpen ? 'grid' : 'none';
+    fixHeight(); // 让输入框跟着降下来
+}
 
-    function toggleSettings(s) { document.getElementById('page-settings').style.display = s ? 'block' : 'none'; }
-    function saveSettings() {
+// 顺便在这里空一行，加上这个“点击空白收起”的功能
+document.getElementById('chat-window').onclick = function() {
+    if (panelOpen) togglePanel();
+};
+
+    function toggleSettings切换设置(s) { document.getElementById('page-settings').style.display = s ? 'block' : 'none'; }
+    function saveSettings保存设置() {函数 保存设置() {函数 保存设置() {函数保存设置() {
         const c = { baseUrl: document.getElementById('baseUrl').value, apiKey: document.getElementById('apiKey').value, modelName: document.getElementById('modelSelect').value };
         localStorage.setItem('chat_vision_v1', JSON.stringify(c));
-        toggleSettings(false);
+        toggleSettings切换设置(false);(false);;(false);
     }
-    async function fetchModels() {
+    async function fetchModels() {异步 函数 fetchModels() {异步 函数 fetchModels() {异步函数fetchModels() {异步 函数 fetchModels() {异步函数fetchModels() {异步函数fetchModels() {异步函数fetchModels() {异步 函数 fetchModels() {异步函数fetchModels() {异步函数fetchModels() {异步函数fetchModels() {异步函数fetchModels() {异步函数fetchModels() {异步函数fetchModels() {异步函数fetchModels() {
         const b = document.getElementById('baseUrl').value;
         const k = document.getElementById('apiKey').value;
-        const res = await fetch(`${b}/models`, { headers: {'Authorization': `Bearer ${k}`} });
+        const res = await fetch(`${b}/models`, { headers: {'Authorization': `Bearer ${k}`} });(`${b}`Bearer ${k
         const d = await res.json();
         document.getElementById('modelSelect').innerHTML = d.data.map(m => `<option value="${m.id}">${m.id}</option>`).join('');
     }
